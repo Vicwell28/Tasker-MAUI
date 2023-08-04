@@ -4,17 +4,17 @@ namespace TaskerDemo.Views;
 
 public partial class MainView : ContentPage
 {
-	private MainViewModel MainViewModel = new MainViewModel();
-
-	public MainView()
+	private readonly MainViewModel viewModel;
+	public MainView(MainViewModel MainViewModel)
 	{
 		InitializeComponent();
-		this.BindingContext = MainViewModel; 
+		viewModel = MainViewModel;
+		this.BindingContext = viewModel; 
 	}
 
 	private void checkBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
 	{
-		MainViewModel.UpdateData();
+		viewModel.UpdateData();
 	}
 
 	private void Button_Clicked(object sender, EventArgs e)
@@ -23,8 +23,8 @@ public partial class MainView : ContentPage
 		{
 			BindingContext = new NewTaskViewModel
 			{
-				Tasks = MainViewModel.Tasks,
-				Categories = MainViewModel.Categories,
+				Tasks = viewModel.Tasks,
+				Categories = viewModel.Categories,
 			}
 		};
 

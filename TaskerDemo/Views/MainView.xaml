@@ -66,7 +66,7 @@
         <Button
             Grid.Row="2"
             Clicked="Button_Clicked"
-            Style="{StaticResource CircularButton}"
+            Style="{DynamicResource CircularButton}"
             Text="+" />
     </Grid>
     
